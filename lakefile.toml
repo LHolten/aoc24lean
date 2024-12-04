@@ -9,6 +9,10 @@ name = "Aoc24lean"
 name = "day2"
 root = "Day2"
 
+[[lean_exe]]
+name = "day3"
+root = "Day3"
+
 [[require]]
 name = "batteries"
 scope = "leanprover-community"

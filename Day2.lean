@@ -1,4 +1,5 @@
 import Batteries
+import Aoc24lean
 
 def reportSafe : List Nat → Bool
 | [] => true
@@ -20,15 +21,9 @@ def dampSafe (report : List Nat) : Bool := Id.run do
   return false
 
 def main : IO Unit := do
-  let stream ← IO.getStdin
+  let input <- read_input
 
-  let mut reports := []
-  while true do
-    let line ← stream.getLine
-    if line.isEmpty then break
-
-    let report := line.trim.splitOn.map (fun x => x.toNat!)
-    reports := report :: reports
+  let reports := input.splitOn "\n" |>.map (fun line => line.splitOn.map String.toNat!)
 
   let total1 := reports.filter reportSafeAnyDir |>.length
   let total2 := reports.filter dampSafe |>.length
