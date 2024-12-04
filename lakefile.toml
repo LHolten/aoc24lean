@@ -6,8 +6,8 @@ defaultTargets = ["aoc24lean"]
 name = "Aoc24lean"
 
 [[lean_exe]]
-name = "aoc24lean"
-root = "Main"
+name = "day2"
+root = "Day2"
 
 [[require]]
 name = "batteries"
