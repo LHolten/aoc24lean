@@ -11,6 +11,13 @@ def reportSafe : List Nat → Bool
     prev := x
   true
 
+theorem safeSound (x: Nat) (xs : List Nat) (i: Fin xs.length):
+  reportSafe (x :: xs) = true ->
+  (x :: xs)[i] < xs[i] && xs[i] <= (x :: xs)[i] + 3 := sorry
+
+
+
+
 def reportSafeAnyDir (report : List Nat) : Bool :=
   reportSafe report || reportSafe report.reverse
 
