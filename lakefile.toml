@@ -8,3 +8,8 @@ name = "Aoc24lean"
 [[lean_exe]]
 name = "aoc24lean"
 root = "Main"
+
+[[require]]
+name = "batteries"
+scope = "leanprover-community"
+rev = "main"
