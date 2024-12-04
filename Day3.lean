@@ -2,12 +2,11 @@ import Aoc24lean
 
 def readArgs (args : String) : Option Nat := do
   let arg1 := args.takeWhile (fun x => x.isDigit)
-  let args := args.drop arg1.length
-  if !args.startsWith "," then none
-  let args := args.drop 1
+  let args := args.dropPrefix? arg1 |>.get!
+  let args <- args.dropPrefix? ",".toSubstring
   let arg2 := args.takeWhile (fun x => x.isDigit)
-  let args := args.drop arg2.length
-  if !args.startsWith ")" then none
+  let args := args.dropPrefix? arg2 |>.get!
+  let _ <- args.dropPrefix? ")".toSubstring
   return (<- arg1.toNat?) * (<- arg2.toNat?)
 
 def String.execute (input : String) : Nat := input.splitOn "mul(" |>.drop 1 |>.filterMap readArgs |>.sum
