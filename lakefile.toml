@@ -1,6 +1,5 @@
 name = "aoc24lean"
 version = "0.1.0"
-defaultTargets = ["aoc24lean"]
 
 [[lean_lib]]
 name = "Aoc24lean"
